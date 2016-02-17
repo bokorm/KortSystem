@@ -1,13 +1,14 @@
 
-public abstract class Kortsystem {
+public abstract class Kort {
 	private String fornavn, etternavn;
 	private int pinkode, kortnummer;
 	private boolean sperret;
 	private static int antallKort;
 	
-	public Kortsystem(String fornavn, String etternavn, int pinkode) {
-		this.fornavn = fornavn;
-		this.etternavn = etternavn;
+	public Kort(String navn, int pinkode) {
+		String[] names = navn.split(" ", 2);
+		this.fornavn = names[0];
+		this.etternavn = names[1];
 		this.pinkode = pinkode;
 		sperret = false;
 		kortnummer = ++antallKort;
@@ -54,5 +55,5 @@ public abstract class Kortsystem {
 				+ ", sperret= " + sperret;
 	}
 	
-	abstract boolean sjekkPin();
+	abstract boolean sjekkPin(int kode);
 }
