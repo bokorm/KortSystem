@@ -82,4 +82,14 @@ public class Ansatt extends Kort implements Konstanter{
 		return (aarNaa- aarAnsatt) * BONUS_FAKTOR;
 	}
 
+	@Override
+	protected Object clone() {
+		Ansatt clone = (Ansatt) super.clone();
+		
+		clone.ansatt = (GregorianCalendar) this.ansatt.clone();
+		
+		return clone;
+	}
+
+	
 }

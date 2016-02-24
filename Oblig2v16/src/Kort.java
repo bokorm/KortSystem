@@ -1,5 +1,5 @@
 
-public abstract class Kort {
+public abstract class Kort implements Cloneable, Comparable<Kort>{
 	private String fornavn, etternavn;
 	private int pinkode, kortnummer;
 	private boolean sperret;
@@ -56,4 +56,24 @@ public abstract class Kort {
 	}
 	
 	abstract boolean sjekkPin(int kode);
+
+	@Override
+	public int compareTo(Kort kort) {
+		int resultat = this.etternavn.compareTo(kort.etternavn);
+		
+		if(resultat == 0)
+			resultat = this.fornavn.compareTo(kort.fornavn);
+		
+		return resultat;
+	}
+
+	@Override
+	protected Object clone() {
+		try {
+			return super.clone();
+		} catch (CloneNotSupportedException e) {
+			System.out.println("Kloning feilet.");
+			return null;
+		}
+	}
 }

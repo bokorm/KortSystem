@@ -27,5 +27,13 @@ public class Gjest extends Kort {
 		
 		return false;
 	}
-
+	
+	@Override
+	protected Object clone() {
+		Gjest clone = (Gjest) super.clone();
+		
+		clone.expires = (GregorianCalendar) this.expires.clone();
+		
+		return clone;
+	}
 }
