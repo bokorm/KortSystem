@@ -1,4 +1,5 @@
 
+
 public interface Konstanter {
 
 	double BONUS_FAKTOR = 1.2; 

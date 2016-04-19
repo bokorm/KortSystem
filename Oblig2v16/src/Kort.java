@@ -1,4 +1,5 @@
 
+
 public abstract class Kort implements Cloneable, Comparable<Kort>{
 	private String fornavn, etternavn;
 	private int pinkode, kortnummer;
